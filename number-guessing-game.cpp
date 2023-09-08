@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 
+
 using namespace std;
 
 int main () {
@@ -12,7 +13,11 @@ int main () {
 
     cout << "Spesify the uplimit of number: ";
     cin >> uplimit;
+    // corrects to user input
+    cin.clear();
+    fflush(stdin);
 
+    if(uplimit >= 10){
     int number = (rand() % uplimit) + 1; 
 
     cout << "# GUESS THE NUMBER [1-" << uplimit << "]: \n";
@@ -30,5 +35,9 @@ int main () {
     } while (guess != number);
     cout << endl << "Finally you found the #" << number << " in " << tries << " tries";
 
+    } else {
+        cout << "Your uplimit must be > or = 10" << endl;
+        main();
+    }
     return 0;
 }
