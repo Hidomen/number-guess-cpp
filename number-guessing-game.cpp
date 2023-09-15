@@ -1,9 +1,6 @@
 #include <iostream>
 #include <ctime>
 
-
-using namespace std;
-
 int main () {
 
     int guess;
@@ -11,32 +8,32 @@ int main () {
     int uplimit;
     srand(time(NULL));
 
-    cout << "Spesify the uplimit of number: ";
-    cin >> uplimit;
+    std::cout << "Spesify the uplimit of number: ";
+    std::cin >> uplimit;
     // corrects to user input
-    cin.clear();
+    std::cin.clear();
     fflush(stdin);
 
     if(uplimit >= 10){
     int number = (rand() % uplimit) + 1; 
 
-    cout << "# GUESS THE NUMBER [1-" << uplimit << "]: \n";
+    std::cout << "# GUESS THE NUMBER [1-" << uplimit << "]: \n";
     
     do {
-        cin >>guess;
+        std::cin >>guess;
         if ( guess > number ) {
-            cout << "Too High" << endl;
+            std::cout << "Too High\n";
         } else if ( guess < number ){
-            cout << "Too Low" << endl;
+            std::cout << "Too Low\n";
         } else {
-            cout << "CORRECT!";
+            std::cout << "CORRECT!";
         }
         tries++;
     } while (guess != number);
-    cout << endl << "Finally you found the #" << number << " in " << tries << " tries";
+    std::cout << "\nFinally you found the #" << number << " in " << tries << " tries";
 
     } else {
-        cout << "Your uplimit must be > or = 10" << endl;
+        std::cout << "Your uplimit must be > or = 10\n";
         main();
     }
     return 0;
